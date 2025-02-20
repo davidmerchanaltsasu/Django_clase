@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editar Empleado</title>
+</head>
+<body>
+<h1>Editar Empleado</h1>
+<form method="POST">
+{% csrf_token %}
+<label for="nombre">Nombre:</label>
+<input type="text" id="nombre" name="nombre" value="{{ empleado.nombre }}" required><br>
+<label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+<input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+value="{{ empleado.fecha_nacimiento }}" required><br>
+<label for="antiguedad">Antigüedad:</label>
+<input type="number" id="antiguedad" name="antiguedad" value="{{empleado.antiguedad}}" required><br>
+<label for="departamento">Departamento:</label>
+<select id="departamento" name="departamento">
+{% for departamento in departamentos %}
+<option value="{{ departamento.id }}" {% if departamento.id == empleado.departamento.id%}selected{% endif %}>
+{{ departamento.nombre }}
+</option>
+{% endfor %}
+</select><br>
+<label for="habilidades">Habilidades:</label><br>
+{% for habilidad in habilidades %}
+    <input type="checkbox" name="habilidades" value="{{ habilidad.id }}" {% if habilidad in empleado.habilidades.all %}checked{% endif %}>
+{{ habilidad.nombre }}<br>
+{% endfor %}
+<button type="submit">Guardar Cambios</button>
+</form>
+</body>
+</html>

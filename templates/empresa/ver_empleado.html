@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalle de empleado</title>
+</head>
+<body>
+<h1>Detalle de empleado</h1>
+<table border="1">
+<thead>
+<tr>
+<th>Imagen</th>
+<th>Nombre</th>
+<th>Fecha de Nacimiento</th>
+<th>Antigüedad</th>
+<th>Departamento</th>
+<th>Habilidades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{% if empleado.imagen %}
+<img style="max-width: 10em; height: auto; object-fit:
+cover;" src="{{ empleado.imagen.url }}" alt="Imagen de {{ empleado.nombre }}"
+/>
+{% else %}
+<p>No hay imagen disponible.</p>
+{% endif %}
+</td>
+    <td><a href="% url 'ver_empleado' empleado.id %">{{ empleado.nombre }}</a></td>
+<td>{{ empleado.fecha_nacimiento }}</td>
+<td>{{ empleado.antiguedad }}</td>
+<td>{{ empleado.departamento.nombre }}</td>
+    <td>{% for habilidad in empleado.habilidades.all %}{{habilidad.nombre}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
