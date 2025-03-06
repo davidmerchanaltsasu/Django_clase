@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Mi CRM</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+<h1>Mi CRM</h1>
+<ul>
+<li><a href="/">Portada</a></li>
+<li><a href="{%  url 'listar_empleados' %}">Empleados</a></li>
+<li><a href="/">Departamentos</a></li>
+<li><a href="/">Habilidades</a></li>
+</ul>
+{% block content %}{% endblock %}
+</body>
+</html>
+

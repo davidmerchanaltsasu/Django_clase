@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Editar Empleado</title>
-</head>
-<body>
+{% extend 'layout.html' %}
+{% block content %}
+
 <h1>Editar Empleado</h1>
 <form method="POST">
 {% csrf_token %}
@@ -31,5 +26,4 @@ value="{{ empleado.fecha_nacimiento }}" required><br>
 {% endfor %}
 <button type="submit">Guardar Cambios</button>
 </form>
-</body>
-</html>
+{% endblock %}

@@ -21,5 +21,9 @@ class Empleado(models.Model):
     antiguedad = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True,verbose_name="Fecha de creacion")
     updated = models.DateTimeField(auto_now=True,verbose_name="Fecha de edicion")
+    imagen = models.ImageField(upload_to='empleados/', null=True, blank=True)
     def __str__(self):
         return f"{self.nombre} --- {self.antiguedad}"
+
+
+

@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de Empleados</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
 <h1>Lista de Empleados</h1>
 <table border="1">
 <thead>
@@ -34,6 +28,23 @@
 {% endfor %}
 </tbody>
 </table>
+    <div class="pagination"></div>
+    <span class="step-links">
+    {% if empleados.has_previous %}
+        <a href="?page=1"><< Primera</a>
+        <a href="?page={{ empleados.previus_page_number }}" >Anterior</a>
+
+    {% endif %}
+    <span class="current"> Pagina {{ empleados.number }} on {{ empleados.paginator.num_pages }}</span>
+    </span>
+
+    {% if empleados.has_next %}
+
+    <a href="?page={{ empleados.next_page_number }}">Siguiente</a>
+<a href="?page={{ empleados.paginator.num_pages }}">Última »</a>
+{% endif %}
+</span>
+</div>
 <a href="{% url 'crear_empleado' %}">Crear Nuevo Empleado</a>
-</body>
-</html>
+
+{% endblock %}
