@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'autenticacion',
     'empresa',
 ]
 
@@ -132,3 +133,5 @@ import os
 MEDIA_URL = '/media/' # URL para acceder a los archivos subidos
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Ruta donde se almacenarán los
 #archivos subidos
+
+AUTH_USER_MODEL = 'autenticacion.CustomUser'

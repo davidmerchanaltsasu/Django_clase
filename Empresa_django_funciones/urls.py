@@ -25,6 +25,7 @@ import empresa
 urlpatterns = [
 # path('admin/', admin.site.urls),
     path('empresa/', include('empresa.urls')),
+    path('auth/', include('autenticacion.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
